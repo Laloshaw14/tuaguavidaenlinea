@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agua es Vida</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      color: #003366;
+      background: #f0f9ff;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin: 15px 10px;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      background: #00aaff;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: #0077cc;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #005577;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .feature h3 {
+      color: #0077aa;
+      margin-top: 10px;
+    }
+
+    /* Bloque de facturación */
+    .facturas {
+      background: #e6f7ff;
+      padding: 40px 20px;
+      border-radius: 15px;
+      margin-top: 40px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .facturas h2 {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>💧 Agua es Vida</h1>
+    <p>Cuidemos cada gota, el futuro nos lo agradecerá.</p>
+    <a href="#facturas" class="cta-btn">Ir a Facturación</a>
+  </header>
+
+  <section>
+    <h2>¿Por qué el agua es importante?</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="https://img.icons8.com/ios-filled/100/00aaff/water.png" alt="Vida">
+        <h3>Fuente de Vida</h3>
+        <p>El agua es esencial para todos los seres vivos en la Tierra.</p>
+      </div>
+      <div class="feature">
+        <img src="https://img.icons8.com/ios-filled/100/00aaff/plant-under-rain.png" alt="Naturaleza">
+        <h3>Naturaleza</h3>
+        <p>Mantiene ríos, mares, bosques y ecosistemas saludables.</p>
+      </div>
+      <div class="feature">
+        <img src="https://img.icons8.com/ios-filled/100/00aaff/faucet.png" alt="Consumo">
+        <h3>Consumo Responsable</h3>
+        <p>Aprender a usar el agua de manera consciente nos asegura un futuro sostenible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloque de Facturación -->
+  <section id="facturas" class="facturas">
+    <h2>💳 Facturación en Línea</h2>
+    <p>Aquí puedes consultar y pagar tu factura de agua de forma rápida y segura.</p>
+    <a href="#" class="cta-btn">Consultar Factura</a>
+    <a href="#" class="cta-btn">Pagar Factura</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Agua es Vida | Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
