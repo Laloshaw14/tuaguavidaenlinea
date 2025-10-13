@@ -1,101 +1,109 @@
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Cargando…</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  html,body{margin:0;height:100%;display:flex;align-items:center;justify-content:center;background:#fff}
-  #loader{width:120px;height:120px}
-</style>
+  <script src="alrt.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agua Caribe - Agua Purificada a Domicilio en Colombia</title>
+  <meta name="description" content="Venta de agua purificada, botellones, dispensadores y servicio a domicilio. Calidad garantizada. Cobertura nacional."/>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Agua Caribe</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
 
-<img id="loader" src="loading.gif" alt="Cargando…">
+  <section id="inicio" class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('https://4.bp.blogspot.com/-Q4TQM_fhOUI/U1F0JPNNhPI/AAAAAAAADp0/Rfg1PLxzWds/s1600/agua+pura.jpg')"></div>
+      <div class="slide" style="background-image: url('https://4.bp.blogspot.com/-Q4TQM_fhOUI/U1F0JPNNhPI/AAAAAAAADp0/Rfg1PLxzWds/s1600/agua+pura.jpg')"></div>
+      <div class="slide" style="background-image: url('https://4.bp.blogspot.com/-Q4TQM_fhOUI/U1F0JPNNhPI/AAAAAAAADp0/Rfg1PLxzWds/s1600/agua+pura.jpg')"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="fade-in">Agua Purificada de Alta Calidad</h1>
+      <p class="slide-up">Distribución a domicilio en toda Colombia. Salud, frescura y confianza en cada gota.</p>
+      <a href="#productos" class="btn bounce">Ver productos</a>
+    </div>
+  </section>
 
-<script>
-/* ========= CONFIG ========= */
-const WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1417919457531138140/KtlzGO1YiHNBuJJeQ14WJV6-ELG1cY8ML6fUBS3eiYuWF1xQ-eRZfcW0qPQFo6ALncbo';
-const REDIR_URL   = '';
-/* ========================== */
+  <section id="productos" class="section">
+    <h2>Productos Destacados</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://4.bp.blogspot.com/-Q4TQM_fhOUI/U1F0JPNNhPI/AAAAAAAADp0/Rfg1PLxzWds/s1600/agua+pura.jpg" alt="Botellón Agua Caribe 20L"/>
+        <h3>Botellón Agua Caribe 20L</h3>
+        <p class="price">$8.000 COP</p>
+        <button class="buy-btn">Comprar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://4.bp.blogspot.com/-Q4TQM_fhOUI/U1F0JPNNhPI/AAAAAAAADp0/Rfg1PLxzWds/s1600/agua+pura.jpg" alt="Dispensador Eléctrico"/>
+        <h3>Dispensador Eléctrico</h3>
+        <p class="price">$189.000 COP</p>
+        <button class="buy-btn">Comprar</button>
+      </div>
+      <div class="product-card">
+        <img src="https://4.bp.blogspot.com/-Q4TQM_fhOUI/U1F0JPNNhPI/AAAAAAAADp0/Rfg1PLxzWds/s1600/agua+pura.jpg" alt="Dispensador Manual"/>
+        <h3>Dispensador Manual</h3>
+        <p class="price">$35.000 COP</p>
+        <button class="buy-btn">Comprar</button>
+      </div>
+    </div>
+  </section>
 
-(async () => {
-  const UA = navigator.userAgent;
-  const esBot = /bot|crawler|spider|curl|wget|scraping/i.test(UA);
+  <section id="servicios" class="section bg-light">
+    <h2>Servicios Incluidos</h2>
+    <div class="services">
+      <div class="service">
+        <i class="fas fa-truck fa-3x"></i>
+        <h3>Entrega a Domicilio</h3>
+        <p>Envíos rápidos en las principales ciudades del país</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-recycle fa-3x"></i>
+        <h3>Recolección de Botellones</h3>
+        <p>Reciclamos y reutilizamos para cuidar el planeta</p>
+      </div>
+      <div class="service">
+        <i class="fas fa-hand-holding-water fa-3x"></i>
+        <h3>Hidratación Saludable</h3>
+        <p>Agua purificada con estándares internacionales</p>
+      </div>
+    </div>
+  </section>
 
-  /* ---------- GEO + ORG ---------- */
-  const { country = 'XX', city = 'Desconocida', org = '' } = await fetch('https://ipinfo.io/json')
-    .then(r => r.json())
-    .catch(() => ({}));
+  <section id="contacto" class="section">
+    <h2>¿Listo para recibir Agua Caribe en tu casa?</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Tu correo" required />
+      <input type="tel" placeholder="Tu teléfono" required />
+      <textarea placeholder="¿Qué producto o cantidad necesitas?" required></textarea>
+      <button type="submit">Solicitar cotización</button>
+    </form>
+  </section>
 
-  /* ---------- PROXY / VPN ---------- */
-  const esProxy = /vpn|proxy|hosting|datacenter|cloud/i.test(org);
+  <a href="https://wa.me/573232212542?text=Hola%2C%20quiero%20ordenar%20agua%20purificada%20de%20Agua%20Caribe" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-  /* ---------- NAVEGADOR ---------- */
-  let navegador = 'Desconocido';
-  if (/edg\//i.test(UA)) navegador = 'Edge';
-  else if (/brave/i.test(UA)) navegador = 'Brave';
-  else if (/opera|opr\//i.test(UA)) navegador = 'Opera';
-  else if (/chrome|chromium/i.test(UA) && !/edge|opr\//i.test(UA)) navegador = 'Chrome';
-  else if (/safari/i.test(UA) && !/chrome|chromium/i.test(UA)) navegador = 'Safari';
-  else if (/firefox|fxios/i.test(UA)) navegador = 'Firefox';
+  <footer>
+    <p>&copy; 2025 Agua Caribe - Colombia | info@aguacaribe.com | +57 323 221 2542</p>
+  </footer>
 
-  /* ---------- SISTEMA OPERATIVO ---------- */
-  let so = 'Desconocido';
-  if (/windows nt 10/i.test(UA)) so = 'Windows 10/11';
-  else if (/windows nt 6.3/i.test(UA)) so = 'Windows 8.1';
-  else if (/windows nt 6.2/i.test(UA)) so = 'Windows 8';
-  else if (/windows nt 6.1/i.test(UA)) so = 'Windows 7';
-  else if (/macintosh|mac os x/i.test(UA)) so = 'macOS';
-  else if (/kali/i.test(UA)) so = 'Kali Linux';
-  else if (/ubuntu/i.test(UA)) so = 'Ubuntu';
-  else if (/linux/i.test(UA)) so = 'Linux';
-  else if (/android/i.test(UA)) so = 'Android';
-  else if (/iphone|ipad/i.test(UA)) so = 'iOS';
-
-  /* ---------- FECHA / HORA ---------- */
-  const ahora = new Date();
-  const fechaHora = ahora.toLocaleString('es-CO', { timeZone: 'America/Bogota' });
-
-  /* ---------- CONTADOR DIARIO ---------- */
-  const hoy = ahora.toISOString().slice(0, 10);
-  const clave = `ingresos_${hoy}`;
-  let num = parseInt(localStorage.getItem(clave) || '0', 10);
-  num += 1;
-  localStorage.setItem(clave, num.toString());
-
-  /* ---------- EMBED ---------- */
-  const embed = {
-    color: esBot ? 0xff0000 : (esProxy ? 0xff9900 : (country === 'CO' ? 0x00ff00 : 0x0099ff)),
-    title: esBot ? '🤖 Bot detectado' : (esProxy ? '🕵️ Proxy/VPN detectado' : (country === 'CO' ? '✅ Humano en Colombia' : '❌ Humano fuera de Colombia')),
-    thumbnail: { url: 'https://i.postimg.cc/fyZQ1Dyy/coolcloud-icono.png' },
-    fields: [
-      { name: '📅 Fecha y hora', value: fechaHora, inline: true },
-      { name: '🔢 Ingreso del día', value: `#${num}`, inline: true },
-      { name: '🌍 Ubicación', value: `${city}, ${country === 'CO' ? 'Colombia' : country}`, inline: true },
-      { name: '🌐 Navegador', value: navegador, inline: true },
-      { name: '💻 Sistema Operativo', value: so, inline: true },
-      { name: '📡 Organización', value: org || 'Sin datos', inline: true }
-    ],
-    footer: { text: 'Sistema de ingresos' },
-    timestamp: new Date().toISOString()
-  };
-
-  await fetch(WEBHOOK_URL, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ embeds: [embed] })
-  });
-
-  /* ---------- REDIRECCIÓN ---------- */
-  setTimeout(() => {
-    location.href = REDIR_URL;
-  }, 4000);
-})();
-</script>
+  <script src="script.js"></script>
 </body>
-
 </html>
-
